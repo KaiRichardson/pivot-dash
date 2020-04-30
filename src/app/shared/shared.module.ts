@@ -13,9 +13,10 @@ import { MatListModule } from '@angular/material/list';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AreaComponent } from './widgets/area/area.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent],
+  declarations: [HeaderComponent, FooterComponent, SidebarComponent, AreaComponent],
   imports: [
     CommonModule,
     FlexLayoutModule,
