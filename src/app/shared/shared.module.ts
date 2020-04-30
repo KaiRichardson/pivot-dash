@@ -15,12 +15,20 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AreaComponent } from './widgets/area/area.component';
 
+import { HighchartsChartModule } from 'highcharts-angular';
+
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent, AreaComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    AreaComponent,
+  ],
   imports: [
     CommonModule,
     FlexLayoutModule,
     RouterModule,
+    HighchartsChartModule,
 
     MatDividerModule,
     MatToolbarModule,
@@ -29,6 +37,6 @@ import { AreaComponent } from './widgets/area/area.component';
     MatMenuModule,
     MatListModule,
   ],
-  exports: [HeaderComponent, FooterComponent, SidebarComponent],
+  exports: [HeaderComponent, FooterComponent, SidebarComponent, AreaComponent],
 })
 export class SharedModule {}
