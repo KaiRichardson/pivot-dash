@@ -16,19 +16,31 @@
 >
   <mat-card fxFlex="25">
     <app-widget-card
-      label="users"
-      total="18k"
-      percentage="50%"
+      label="New Users"
+      total="12k"
+      percentage="50"
     ></app-widget-card>
   </mat-card>
   <mat-card fxFlex="25">
-    <app-widget-card></app-widget-card>
+    <app-widget-card
+      label="User Retention"
+      total="10k"
+      percentage="40"
+    ></app-widget-card>
   </mat-card>
   <mat-card fxFlex="25">
-    <app-widget-card></app-widget-card>
+    <app-widget-card
+      label="User Engagement"
+      total="8k"
+      percentage="30"
+    ></app-widget-card>
   </mat-card>
   <mat-card fxFlex="25">
-    <app-widget-card></app-widget-card>
+    <app-widget-card
+      label="Referrals"
+      total="6k"
+      percentage="20"
+    ></app-widget-card>
   </mat-card>
 </div>
 
@@ -38,7 +50,9 @@
 
 <br />
 
-<div>
-  <div>Table</div>
-  <div>Pie Chart</div>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+  <div fxFlex="60">Table</div>
+  <div fxFlex="40">
+    <app-widget-pie></app-widget-pie>
+  </div>
 </div>
