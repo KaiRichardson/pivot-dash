@@ -17,18 +17,38 @@ export class AreaComponent implements OnInit {
   ngOnInit() {
     this.chartOptions = {
       chart: {
-        type: 'area',
+        type: 'line',
       },
       title: {
-        text: 'Random DATA',
+        text: 'Agent Metrics',
       },
       subtitle: {
-        text: 'Demo',
+        text: 'Tickets Per Hour',
       },
-
       tooltip: {
         split: true,
-        valueSuffix: ' millions',
+        valueSuffix: ' Tickets',
+      },
+      xAxis: {
+        categories: [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec',
+        ],
+      },
+      yAxis: {
+        title: {
+          text: 'Temperature (°C)',
+        },
       },
       credits: {
         enabled: false,
@@ -38,24 +58,38 @@ export class AreaComponent implements OnInit {
       },
       series: [
         {
-          name: 'Asia',
-          data: [502, 635, 809, 947, 1402, 3634, 5268],
+          name: 'Tokyo',
+          data: [
+            7.0,
+            6.9,
+            9.5,
+            14.5,
+            18.4,
+            21.5,
+            25.2,
+            26.5,
+            23.3,
+            18.3,
+            13.9,
+            9.6,
+          ],
         },
         {
-          name: 'Africa',
-          data: [106, 107, 111, 133, 221, 767, 1766],
-        },
-        {
-          name: 'Europe',
-          data: [163, 203, 276, 408, 547, 729, 628],
-        },
-        {
-          name: 'America',
-          data: [18, 31, 54, 156, 339, 818, 1201],
-        },
-        {
-          name: 'Oceania',
-          data: [2, 2, 2, 6, 13, 30, 46],
+          name: 'London',
+          data: [
+            3.9,
+            4.2,
+            5.7,
+            8.5,
+            11.9,
+            15.2,
+            17.0,
+            16.6,
+            14.2,
+            10.3,
+            6.6,
+            4.8,
+          ],
         },
       ],
     };
