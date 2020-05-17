@@ -1,50 +1,150 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DashboardService } from '../dashboard.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/';
 
-export interface PeriodicElement {
+export interface Agent {
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  title: string;
+  language: string;
+  specialization: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-  { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-  { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-  { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-  { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-  { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-  { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-  { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-  { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-  { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
+const ELEMENT_DATA: Agent[] = [
+  {
+    name: 'Jemima Forrest',
+    title: 'Tech',
+    language: 'English',
+    specialization: 'DOTA2',
+  },
+  {
+    name: 'Kayleigh Stewart',
+    title: 'Billing',
+    language: 'Chinese',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Lisa Molina',
+    title: 'Training',
+    language: 'English',
+    specialization: 'L&D',
+  },
+  {
+    name: 'Thea Rowe',
+    title: 'Hardware',
+    language: 'Russian',
+    specialization: 'Hardware',
+  },
+  {
+    name: 'Nannie Harrison',
+    title: 'Team Lead',
+    language: 'English',
+    specialization: 'DOTA2',
+  },
+  {
+    name: 'Chelsea Humphreys',
+    title: 'Billing',
+    language: 'French',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Isabella Lewis',
+    title: 'Hardware',
+    language: 'English',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Orla Harmon',
+    title: 'Tech',
+    language: 'English',
+    specialization: 'CS:GO',
+  },
+  {
+    name: 'Beatrice Oliver',
+    title: 'Team Lead',
+    language: 'Ukrainian',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Jessie Whelan',
+    title: 'Billing',
+    language: 'English',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Angus Glover',
+    title: 'Tech',
+    language: 'English',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Homer Castillo',
+    title: 'Team Lead',
+    language: 'English',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Alec Guerrero',
+    title: 'Hardware',
+    language: 'Italian',
+    specialization: 'DOTA',
+  },
+  {
+    name: 'Albert Briggs',
+    title: 'Billing',
+    language: 'English',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Hugh Richardson',
+    title: 'Tech',
+    language: 'Chinese',
+    specialization: 'CS:GO',
+  },
+  {
+    name: 'Eddie Gonzalez',
+    title: 'Team Lead',
+    language: 'English',
+    specialization: 'CS:GO',
+  },
+  {
+    name: 'Otis Baker',
+    title: 'Training',
+    language: 'Russian',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Christopher Wilson',
+    title: 'Billing',
+    language: 'English',
+    specialization: 'Billing',
+  },
+  {
+    name: 'Rafael Duncan',
+    title: 'Hardware',
+    language: 'English',
+    specialization: 'DOTA',
+  },
+  {
+    name: 'Chris Black',
+    title: 'Tech',
+    language: 'English',
+    specialization: 'DOTA2',
+  },
 ];
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
+  templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit {
   bigChart = [];
   cards = [];
   pieChart = [];
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['name', 'title', 'language', 'specialization'];
+  dataSource = new MatTableDataSource<Agent>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   constructor(private dashboardService: DashboardService) {}
@@ -52,7 +152,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.bigChart = this.dashboardService.bigChart();
     this.cards = this.dashboardService.cards();
-    this.pieChart = this.dashboardService.pieChart();
+    // this.pieChart = this.dashboardService.pieChart();
 
     this.dataSource.paginator = this.paginator;
   }
