@@ -1,12 +1,20 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+
 import { DefaultComponent } from './layout/default/default.component';
+import { LoginComponent } from './layout/login/login.component';
+
+import { ActivePivotsComponent } from './modules/active-pivots/active-pivots.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostsComponent } from './modules/posts/posts.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: LoginComponent,
+  },
+  {
+    path: 'dashboard',
     component: DefaultComponent,
     children: [
       {
@@ -16,6 +24,10 @@ const routes: Routes = [
       {
         path: 'posts',
         component: PostsComponent,
+      },
+      {
+        path: 'active-pivots',
+        component: ActivePivotsComponent,
       },
     ],
   },
