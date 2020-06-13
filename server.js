@@ -2,19 +2,10 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const events = require("./events");
-const mysql = require("mysql");
 const cors = require("cors");
 const path = require("path");
 
 const app = express();
-
-// connecting to SQL server
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "timeline",
-  password: "password",
-  database: "timeline",
-});
 
 connection.connect();
 
@@ -27,6 +18,11 @@ app.get("/*", function (req, res) {
 
 // Start the app by listening on the default Heroku port
 const port = process.env.PORT || 8080;
+
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgersController.js");
+
+app.use(routes);
 
 const app = express()
   .use(cors())
